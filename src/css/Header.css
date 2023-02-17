@@ -1,0 +1,26 @@
+
+.headers img{
+    height: 12vh;
+}
+.headers{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-around;
+    background-color: cadetblue;
+   
+}
+.headers ul{
+    list-style-type : none;
+    font-size: 24px;
+}
+#ulDIv{
+    display: flex;
+   
+}
+#searchIcon{
+    font-size: 24px;
+    display: flex;
+   align-items: center;
+
+}
