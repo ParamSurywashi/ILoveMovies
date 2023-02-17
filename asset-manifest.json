@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ILoveMovies/static/css/main.d573d7f7.css",
+    "main.js": "/ILoveMovies/static/js/main.e56de1ec.js",
+    "static/media/MoviesLogo.png": "/ILoveMovies/static/media/MoviesLogo.acdcc0d8339c3922af5d.png",
+    "index.html": "/ILoveMovies/index.html",
+    "main.d573d7f7.css.map": "/ILoveMovies/static/css/main.d573d7f7.css.map",
+    "main.e56de1ec.js.map": "/ILoveMovies/static/js/main.e56de1ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d573d7f7.css",
+    "static/js/main.e56de1ec.js"
+  ]
+}
