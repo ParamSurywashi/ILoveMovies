@@ -17,6 +17,7 @@ function CardBox(props) {
       <b className="title">{props.title}</b>
       <span className="subTitle">
         {props.media_type === "tv" ? "TV Series" : "Movie"} <br />
+        <span>Language : {props.original_language}</span> <br />
         <span className="subTitle">{props.date}</span>
       </span> 
       </div>

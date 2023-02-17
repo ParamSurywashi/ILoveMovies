@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import "../css/Header.css";
 import LogoMovie from '../images/MoviesLogo.png';
 import {MdLocalFireDepartment,MdMovie,MdSlideshow,MdSearch,MdOutlineVpnLock} from "react-icons/md";
 function Header() {
   return (
     <div className="headers">
-      <div><img src={LogoMovie} /></div>
+       <Link to="/"><div><img src={LogoMovie} /></div> </Link>
       <ul>
-         <MdLocalFireDepartment /> Trending
+        <Link to="/" className='linkComp'> <MdLocalFireDepartment /> Trending </Link>
          <li></li>
       </ul>
       <ul>
-         <MdMovie /> Movie
+      <Link to="/Movie" className='linkComp'> <MdMovie /> Movie </Link>
          <li></li>
       </ul>
       <ul>
-          <MdSlideshow />TV Shows
+      <Link to="/Tv Shows" className='linkComp'>  <MdSlideshow />TV Shows </Link>
          <li></li>
       </ul>
       <ul>
