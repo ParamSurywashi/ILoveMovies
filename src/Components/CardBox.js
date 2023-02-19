@@ -1,13 +1,26 @@
 import React from 'react'
 import Badge from '@mui/material/Badge';
+import { useNavigate } from 'react-router-dom';
 function CardBox(props) {
-    //console.log(props)
+  const navigate = useNavigate();
+    const handleClickOnCard = (e)=>{
+       let cardId = e.currentTarget.id;
+       navigate("/newPageComp",{state : props});
+       
+       
+      }
   return (
    <>
-   <div id='cardFlex'>
+   <div className='cardFlex' id={props.id} onClick={handleClickOnCard}>
    <Badge
         badgeContent={props.vote_average}
         color={props.vote_average > 6 ? "primary" : "secondary"}
+        // anchorOrigin={{
+        //   horizontal: 'left',
+        //   vertical: 'bottom',
+         
+        // }}
+        
       />
     <img
         className="poster"
@@ -16,7 +29,8 @@ function CardBox(props) {
       />
       <b className="title">{props.title}</b>
       <span className="subTitle">
-        {props.media_type === "tv" ? "TV Series" : "Movie"} <br />
+        
+        {(props.media_type === "undefined") ? (props.media_type = "movie") : (props.media_type === "tv" ? "TV Series" : "Movie")} <br />
         <span>Language : {props.original_language}</span> <br />
         <span className="subTitle">{props.date}</span>
       </span> 

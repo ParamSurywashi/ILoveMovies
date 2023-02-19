@@ -1,0 +1,9 @@
+.pageBox{
+    display: flex;
+    justify-content: space-around;
+}
+ .pageBox img{
+    border-radius: 8%;
+    margin-top: 1vh;
+ 
+}

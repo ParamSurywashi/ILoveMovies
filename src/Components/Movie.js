@@ -9,12 +9,12 @@ function Movie() {
     const [totalPage, setTotalPage] = useState(1);
     const [data, setData] = useState([]);
     const fetchMovie = ()=>{
-    
         return fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`) .then((res)=>res.json())
+        `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
         .then((response)=>{
           console.log(response)
-          setData(response.results)
+          setData(response.results);
+          setTotalPage(response.total_pages);
         })
     }
     

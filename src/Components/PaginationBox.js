@@ -10,7 +10,6 @@ function PaginationBox(props) {
       props.changePages(currentPage);
       
     },[currentPage])
-    console.log(props)
   return (
     <div id='pagin'>
     {/* <Pagination

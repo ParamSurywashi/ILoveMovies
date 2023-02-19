@@ -1,14 +1,17 @@
 #cardBox{
     display: flex;
     flex-direction: row;
-   
+    overflow-x: auto; 
+
 }
-#cardFlex{
+.cardFlex{
     display: flex;
     flex-direction: column;
-    margin: 0px 1em;
+    margin: 1em;
+    padding: 1em;
+     /* pointer-events: none; */
 }
-#cardFlex img{
+.cardFlex img{
     width: 20vh;
     height: 30vh;
     border-radius: 5%;

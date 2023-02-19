@@ -15,7 +15,6 @@ function Trending() {
         return fetch(
       `https://api.themoviedb.org/3/trending/all/${dayOrWeek}?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
       .then((response)=>{
-        console.log(response)
          setContent(response.results);
          setTotalPage(response.total_pages);
       })
@@ -28,7 +27,8 @@ function Trending() {
         function changePages(pages){
            setPageClick(pages);
         }
-        function FetchCard(content, movieType){
+        
+    function FetchCard(content, movieType){
        return (
             <>
             <h1>Trending {movieType}</h1>
