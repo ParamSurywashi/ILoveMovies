@@ -7,16 +7,15 @@ import PaginationBox from './PaginationBox';
 let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 function Search() {
   let type = "movie";
-  let searchText= "Harry";
+  const[res, setRes] = useState("");
   const[result, setResult] = useState([]);
   const [pageClick, setPageClick] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-    function fetchAPI(){
-       
+
+    function fetchAPI(searchText){
         return fetch(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${apiKey}&language=en-US&query=${searchText}&page=${pageClick}&include_adult=false`)
         .then((res)=>res.json())
         .then((data)=>{
-            console.log(data)
           setResult(data.results);
           setTotalPage(data.total_pages);
         }).catch((err)=>{
@@ -25,8 +24,7 @@ function Search() {
         };
   
        const handleSearch = (e)=>{
-        console.log(e.target)
-          fetchAPI();
+          fetchAPI(res);
        }
         // useEffect(()=>{
         // fetchAPI();
@@ -40,8 +38,8 @@ function Search() {
     <div className='searchPageContainer'>
           <div className="input-box">
               <i><FcSearch /></i>
-              <input type="text" placeholder="Search for a Movie, TV Shows, Person...." />
-              <button className="button" onClick={(e)=>handleSearch(e)}>Search</button>
+              <input type="text" placeholder="Search for a Movie, TV Shows, Person...." value={res} onChange={(e)=>setRes(e.target.value)}/>
+              <button className="button" onClick={handleSearch}>Search</button>
          </div> 
          <div>
          <PaginationBox changePages={changePages} totalPages={totalPage}/>
