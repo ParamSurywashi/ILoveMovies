@@ -1,4 +1,6 @@
-
+*{
+    margin: 0;
+}
 .headers img{
     height: 12vh;
 }
@@ -8,6 +10,7 @@
     display: flex;
     justify-content: space-around;
     background-color: cadetblue;
+    align-items: center;
    
 }
 .headers ul{
