@@ -19,12 +19,9 @@ function Header() {
       <Link to="/Tv Shows" className='linkComp'>  <MdSlideshow />TV Shows </Link>
          <li></li>
       </ul>
-      <ul>
-         <MdOutlineVpnLock /> About
-         <li></li>
-      </ul>
+    
   
-    <div id='searchIcon'> <MdSearch /> Search</div>
+    <Link to="/Search" id='searchIcon'> <MdSearch /> Search</Link>
     </div>
   )
 }

@@ -13,7 +13,8 @@ function Trending() {
     const fetchTrading = ()=>{
       
         return fetch(
-      `https://api.themoviedb.org/3/trending/all/${dayOrWeek}?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
+      `https://api.themoviedb.org/3/trending/all/${dayOrWeek}?api_key=${apiKey}&page=${pageClick}`) 
+      .then((res)=>res.json())
       .then((response)=>{
          setContent(response.results);
          setTotalPage(response.total_pages);
