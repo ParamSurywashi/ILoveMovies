@@ -111,11 +111,11 @@ function Trending() {
       <PaginationBox changePages={changePages} totalPages={totalPage}/>
       <div id='dayWeek'>
         
-        <ToggleButtonGroup id="toggleBox" value={dayOrWeek} exclusive onChange={handleChange} aria-label="text alignment">
-            <ToggleButton value={dayOrWeek}>
+        <ToggleButtonGroup className="toggleBox" value={dayOrWeek} exclusive onChange={handleChange} aria-label="text alignment">
+            <ToggleButton value={dayOrWeek} className="toggleBox">
               Day
            </ToggleButton>
-            <ToggleButton value={dayOrWeek} >
+            <ToggleButton value={dayOrWeek} className="toggleBox">
               Week
             </ToggleButton>
        </ToggleButtonGroup>

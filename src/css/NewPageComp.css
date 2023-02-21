@@ -55,7 +55,9 @@
    height: 30vh;
    border-radius: 5%;
 }
-
+.otherBox{
+   padding: 2em 0px;
+}
 .gridOfCast{
    display: flex;
    flex-direction: row;
