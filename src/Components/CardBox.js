@@ -24,7 +24,7 @@ function CardBox(props) {
       />
     <img
         className="poster"
-        src={props.poster ? `https://image.tmdb.org/t/p/w300${props.poster}` : ""}
+        src={props.poster ? `https://image.tmdb.org/t/p/w300${props.poster}` : "https://www.movienewz.com/img/films/poster-holder.jpg"}
         alt={props.title}
       />
       <b className="title">{props.title}</b>

@@ -32,7 +32,7 @@ function Search() {
         // },[])
         function changePages(pages){
             setPageClick(pages);
-            fetchAPI();
+            fetchAPI(res);
          }
   return (
     <div className='searchPageContainer'>
@@ -43,6 +43,7 @@ function Search() {
          </div> 
          <div>
          <PaginationBox changePages={changePages} totalPages={totalPage}/>
+          <div className='gridSearchResult'>
          {result &&
           result.map((card) => (
             <CardBox
@@ -56,6 +57,7 @@ function Search() {
               vote_average={Math.floor(card.vote_average * 10)}
             />
           ))}
+          </div>
          </div>
     </div>
   )
