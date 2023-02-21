@@ -21,9 +21,9 @@ function Trending() {
          setTotalPage(response.total_pages);
       })
  }
- const fetchMovie = ()=>{
+ const FetchPopularMovies = ()=>{
   return fetch(
-  `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&sort_by=popularity.desc`) .then((res)=>res.json())
+  `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&sort_by=popularity.desc&sort_by=vote_average.desc`) .then((res)=>res.json())
   .then((response)=>{
     console.log(response)
    setPopular(response.results);
@@ -33,6 +33,7 @@ function Trending() {
 
       useEffect(() => {
         fetchTrading();
+        FetchPopularMovies();
         },[pageClick,dayOrWeek])
   
         function changePages(pages){
@@ -88,7 +89,6 @@ function Trending() {
                <>
                <h1>{movieType}</h1>
          <div id='cardBox'>
-          {console.log(popular)}
             {popular &&
                 popular.map((card) => (
                   
