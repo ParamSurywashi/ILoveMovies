@@ -5,7 +5,7 @@ function CardBox(props) {
   const navigate = useNavigate();
     const handleClickOnCard = (e)=>{
        let cardId = e.currentTarget.id;
-       console.log(props)
+      // console.log(props)
        navigate("/newPageComp",{state : props});
        
        

@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
-import Youtube from "react-youtube";
+import Youtube,{ YouTubePlayer } from "react-youtube";
 import "../css/NewPageComp.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
@@ -15,6 +15,8 @@ function NewPageComp() {
     const [content, setContent] = useState();
     const [cast, setCast] = useState([]);
     const location = useLocation();
+
+    //let videoElement: YouTubePlayer = null;
     let from = location.state;
     let media;
    if(from.media_type){
@@ -38,7 +40,7 @@ function NewPageComp() {
       return fetch(`https://api.themoviedb.org/3/${media}/${from.id}/videos?api_key=${apiKey}&language=en-US`)
       .then((res)=>res.json())
       .then((data)=>{
-        console.log(data)
+        //console.log(data)
         setVideo(data.results[0]?.key);
       }).catch((err)=>{
         console.log(err)
@@ -49,7 +51,7 @@ function NewPageComp() {
       return fetch(`https://api.themoviedb.org/3/movie/${from.id}/credits?api_key=${apiKey}`)
       .then(response => response.json())
       .then((jsonData)=>{
-       console.log(jsonData);
+     //  console.log(jsonData);
        setCast(jsonData.cast)
       });
     }
@@ -65,7 +67,13 @@ function NewPageComp() {
         control : 0,
         showinfo: 0,
         height: '390',
-        width: '640'
+        width: '640',
+        playerVars: {
+          enablejsapi: 1,
+          origin: "http://localhost:3000",
+          loop: 0,
+          autoplay:0
+      },
       }
       
       
@@ -82,7 +90,7 @@ function NewPageComp() {
     function setCastBox(cast){
       
         return (
-          <div className='castBoxDetails'>
+          <div className='castBoxDetails' key={cast.id}>
 
           <img className="castPoster"
         src={cast.profile_path ? `https://image.tmdb.org/t/p/w300${cast.profile_path}` : "https://www.movienewz.com/img/films/poster-holder.jpg"}
@@ -106,7 +114,7 @@ function NewPageComp() {
                   alt={content.name || content.title}
                   className="imgForBackground"
                 /> */}
-   {console.log(content)}
+   
        <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} />
     <div className='cardOfBox'>
         <h1> {from.title} <span>({(content.release_date)?(content.release_date.split("-")[0]):(content.first_air_date.split("-")[0])})</span></h1>

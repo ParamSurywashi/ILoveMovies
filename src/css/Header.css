@@ -34,3 +34,11 @@
     color: black;
     text-decoration: none;
 }
+
+#footerApp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #61a4e8, #000a76);
+    padding: 1vh 0px;
+}

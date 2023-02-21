@@ -24,7 +24,7 @@ function Trending() {
  const FetchPopularMovies = ()=>{
   return fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&sort_by=popularity.desc&sort_by=vote_average.desc`) .then((res)=>res.json())
   .then((response)=>{
-    console.log(response)
+   // console.log(response)
    setPopular(response.results);
    setTotalPage(response.total_pages);
   })
