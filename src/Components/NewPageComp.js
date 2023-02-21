@@ -86,9 +86,9 @@ function NewPageComp() {
     <div className='cardOfBox'>
         <h1> {from.title} <span>({content.release_date.split("-")[0]})</span></h1>
         {/* <Link to={content.homepage} ></Link> */}
-      <div>
+      <div >
         <Box id="circularTxtBox" sx={{ position: 'relative', display: 'inline-flex' }}>
-      <CircularProgress variant="determinate"  value={from.vote_average} size={60} thickness={4}/>
+      <CircularProgress variant="determinate" color="secondary" id='idBoxVoteAvg' value={from.vote_average} size={60} thickness={4}/>
       <Box
         sx={{
           top: 0,
@@ -108,7 +108,7 @@ function NewPageComp() {
     </Box>
     <div id='usrScoreTxt'>User <br/> Score</div>
     </div>
-    <div>{content.tagline}</div>
+    <div id='tagLineTxt'>{content.tagline}</div>
     <div className='titleOfPage'> <span>Overview</span> <br/>{content.overview}</div>
   
        </div>

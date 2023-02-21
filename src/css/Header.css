@@ -9,7 +9,8 @@
     padding: 0px;
     display: flex;
     justify-content: space-around;
-    background-color: cadetblue;
+    background-image: linear-gradient(cadetblue , #41bdd5);
+    /* background-color: cadetblue; */
     align-items: center;
    
 }
