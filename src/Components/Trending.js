@@ -11,8 +11,8 @@ function Trending() {
     const [pageClick, setPageClick] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
     const [dayOrWeek, setDayOrWeek] = useState("day");
+
     const fetchTrading = ()=>{
-      
         return fetch(
       `https://api.themoviedb.org/3/trending/all/${dayOrWeek}?api_key=${apiKey}&page=${pageClick}`) 
       .then((res)=>res.json())
@@ -22,8 +22,7 @@ function Trending() {
       })
  }
  const FetchPopularMovies = ()=>{
-  return fetch(
-  `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&sort_by=popularity.desc&sort_by=vote_average.desc`) .then((res)=>res.json())
+  return fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&sort_by=popularity.desc&sort_by=vote_average.desc`) .then((res)=>res.json())
   .then((response)=>{
     console.log(response)
    setPopular(response.results);

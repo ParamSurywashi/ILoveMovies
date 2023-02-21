@@ -34,13 +34,13 @@
    font-size: 16px;
 }
 #idBoxVoteAvg{
-   background-color: aquamarine;
+   background-color: rgb(122, 238, 199);
    border-radius: 25em;
 }
 #tagLineTxt{
    font-family: 'Times New Roman';
    font-size: 22px;
-   color: rgb(66, 187, 163);
+   color: rgb(145, 191, 9);
    margin: 1vh 0px;
 }
 .cardOfBox{
@@ -48,4 +48,19 @@
    flex-direction: column; 
    margin: 0px 2em;
 
+}
+
+.castPoster{
+   width: 20vh;
+   height: 30vh;
+   border-radius: 5%;
+}
+
+.gridOfCast{
+   display: flex;
+   flex-direction: row;
+   overflow-x: auto; 
+}
+.castBoxDetails{
+   margin: 1em;
 }

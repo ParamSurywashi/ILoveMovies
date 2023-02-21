@@ -13,13 +13,14 @@ let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 function NewPageComp() {
     const [video, setVideo] = useState();
     const [content, setContent] = useState();
+    const [cast, setCast] = useState([]);
     const location = useLocation();
     let from = location.state;
     let media;
    if(from.media_type){
     media=from.media_type;
    }else{
-    media="movie"
+    media="tv"
    }
  
 
@@ -44,10 +45,19 @@ function NewPageComp() {
       })
       };
 
-    
+    function fetchDirector(){
+      return fetch(`https://api.themoviedb.org/3/movie/${from.id}/credits?api_key=${apiKey}`)
+      .then(response => response.json())
+      .then((jsonData)=>{
+       console.log(jsonData);
+       setCast(jsonData.cast)
+      });
+    }
+    // jsonData.crew.filter(({job})=> (job ==='Director') ? console.log(job) : "")
       useEffect(()=>{
       fetchVideo();
       fetchData();
+      fetchDirector();
          // eslint-disable-next-line
       },[])
 
@@ -68,6 +78,21 @@ function NewPageComp() {
     //     backgroundSize: "cover"
        
     // };
+
+    function setCastBox(cast){
+      
+        return (
+          <div className='castBoxDetails'>
+
+          <img className="castPoster"
+        src={cast.profile_path ? `https://image.tmdb.org/t/p/w300${cast.profile_path}` : "https://www.movienewz.com/img/films/poster-holder.jpg"}
+        /> <br />
+        <b className="name">{cast.name}</b>  <br />
+         <span>Character : {cast.character}</span> <br />
+        <span >{cast.known_for_department}</span>
+          </div>
+        )
+    }
   return (
     <>
      {content && (
@@ -84,7 +109,7 @@ function NewPageComp() {
    {console.log(content)}
        <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} />
     <div className='cardOfBox'>
-        <h1> {from.title} <span>({content.release_date.split("-")[0]})</span></h1>
+        <h1> {from.title} <span>({(content.release_date)?(content.release_date.split("-")[0]):(content.first_air_date.split("-")[0])})</span></h1>
         {/* <Link to={content.homepage} ></Link> */}
       <div >
         <Box id="circularTxtBox" sx={{ position: 'relative', display: 'inline-flex' }}>
@@ -117,8 +142,17 @@ function NewPageComp() {
         opts={options}  
       />
       </div>
+      
     </div>
      )}
+     <div className='otherBox'>
+        <h1>Cast</h1>
+        <div className='gridOfCast'>
+          {cast && cast.map((cst)=>{
+           return setCastBox(cst);
+          })}
+        </div>
+     </div>
     </>
   )
 }
