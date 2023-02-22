@@ -14,7 +14,6 @@ function TvShows() {
         return fetch(
         `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
         .then((response)=>{
-          console.log(response)
           setData(response.results);
           setTotalPage(response.total_pages);
         })
@@ -41,7 +40,7 @@ function TvShows() {
               title={card.title || card.name}
               original_language={card.original_language}
               date={card.first_air_date || card.release_date}
-              media_type={card.media_type}
+              media_type="tv"
               vote_average={Math.floor(card.vote_average * 10)}
             />
         

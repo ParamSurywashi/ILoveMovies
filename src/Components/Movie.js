@@ -39,7 +39,7 @@ function Movie() {
               title={card.title || card.name}
               original_language={card.original_language}
               date={card.first_air_date || card.release_date}
-              media_type={card.media_type}
+              media_type="movie"
               vote_average={Math.floor(card.vote_average * 10)}
             />
         

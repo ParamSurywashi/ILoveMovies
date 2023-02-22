@@ -16,6 +16,7 @@ function CardBox(props) {
    <Badge
         badgeContent={props.vote_average}
         color={props.vote_average > 6 ? "primary" : "secondary"}
+        size={60}
         // anchorOrigin={{
         //   horizontal: 'left',
         //   vertical: 'bottom',

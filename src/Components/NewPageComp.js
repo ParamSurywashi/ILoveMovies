@@ -47,8 +47,9 @@ function NewPageComp() {
       })
       };
 
-    function fetchDirector(){
-      return fetch(`https://api.themoviedb.org/3/movie/${from.id}/credits?api_key=${apiKey}`)
+    function fetchDirector(media){
+      
+      return fetch(`https://api.themoviedb.org/3/${media}/${from.id}/credits?api_key=${apiKey}`)
       .then(response => response.json())
       .then((jsonData)=>{
      //  console.log(jsonData);
@@ -59,7 +60,7 @@ function NewPageComp() {
       useEffect(()=>{
       fetchVideo();
       fetchData();
-      fetchDirector();
+      fetchDirector(media);
          // eslint-disable-next-line
       },[])
 
