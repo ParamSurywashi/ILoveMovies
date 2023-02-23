@@ -8,7 +8,8 @@ function PageComp(props) {
     const [pageClick, setPageClick] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
     const [data, setData] = useState([]);
-
+   let movieTech;
+   
 
     const fetchMovie = (movieOrTv, movieType)=>{
         return fetch(
@@ -24,21 +25,27 @@ function PageComp(props) {
 
           if(props.type === "PopularMovie"){
             fetchMovie("movie","popular");
+            movieTech="movie";
           }
           if(props.type === "topRateMovie"){
             fetchMovie("movie","top_rated");
+            movieTech="movie";
           }
           if(props.type === "UpcomingMovie"){
             fetchMovie("movie","upcoming");
+            movieTech="movie";
           }
           if(props.type === "PopularTvShow"){
             fetchMovie("tv","popular");
+            movieTech="tv";
           }
           if(props.type === "topRateTvShow"){
             fetchMovie("tv","top_rated");
+            movieTech="tv";
           }
           if(props.type === "airingToday"){
             fetchMovie("tv","airing_today");
+            movieTech="tv";
           }
           },[pageClick, props.type])
         
@@ -49,9 +56,10 @@ function PageComp(props) {
     <>
     <PaginationBox changePages={changePages} totalPages={totalPage}/>
     <div id='movieBox'>
+      {console.log(data)}
     {data &&
           data.map((card) => (
-        
+           
             <CardBox
               key={card.id}
               id={card.id}
@@ -59,7 +67,7 @@ function PageComp(props) {
               title={card.title || card.name}
               original_language={card.original_language}
               date={card.first_air_date || card.release_date}
-              media_type="movie"
+              media_type={movieTech}
               vote_average={Math.floor(card.vote_average * 10)}
             />
         
