@@ -39,8 +39,8 @@ function Movie() {
           if(event.target.innerText==="KOREAN"){
             setbollyOrHolly("ko");
           }
-          if(event.target.innerText==="POLAND"){
-            setbollyOrHolly("pl");
+          if(event.target.innerText==="PANJABI"){
+            setbollyOrHolly("pa");
           }
         };
   return (
@@ -59,9 +59,13 @@ function Movie() {
               Korean
             </ToggleButton>
             <ToggleButton value={bollyOrHolly} className="toggleBox">
-            POLAND
+            PANJABI
             </ToggleButton>
        </ToggleButtonGroup>
+      </div>
+
+      <div>
+      {/* https://api.themoviedb.org/3/configuration/languages?api_key=f7c839883fc085f9357c84ea65a753d0&page=1 */}
       </div>
     <div id='movieBox'>
     {data &&
