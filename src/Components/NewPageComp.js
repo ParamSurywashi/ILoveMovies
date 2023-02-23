@@ -94,7 +94,7 @@ function NewPageComp() {
           <div className='castBoxDetails' key={cast.id}>
 
           <img className="castPoster"
-        src={cast.profile_path ? `https://image.tmdb.org/t/p/w300${cast.profile_path}` : "https://www.movienewz.com/img/films/poster-holder.jpg"}
+        src={cast.profile_path ? `https://image.tmdb.org/t/p/w300${cast.profile_path}` : "https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg"}
         /> <br />
         <b className="name">{cast.name}</b>  <br />
          <span>Character : {cast.character}</span> <br />

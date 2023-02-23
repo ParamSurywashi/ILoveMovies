@@ -3,6 +3,9 @@ import CardBox from './CardBox';
 import "../css/Movie.css";
 import PaginationBox from './PaginationBox';
 import { ToggleButton, ToggleButtonGroup} from '@mui/material';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 
@@ -11,7 +14,7 @@ function Movie() {
     const [totalPage, setTotalPage] = useState(1);
     const [data, setData] = useState([]);
     const [bollyOrHolly, setbollyOrHolly] = useState("hi");
-
+    const [comboData, setComboData] = useState([]);
     const fetchMovie = ()=>{
         return fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_original_language=${bollyOrHolly}&page=${pageClick}`) .then((res)=>res.json())
@@ -43,29 +46,77 @@ function Movie() {
             setbollyOrHolly("pa");
           }
         };
+      
+        function fetchOtherLanguage(){
+          return fetch( `https://api.themoviedb.org/3/configuration/languages?api_key=${apiKey}`) .then((res)=>res.json())
+        .then((response)=>{
+          //console.log(response)
+          setComboData(response);
+        })
+      }
+ 
+    useEffect(()=>{
+      fetchOtherLanguage();
+    },[])
+// {/* https://api.themoviedb.org/3/configuration/languages?api_key=f7c839883fc085f9357c84ea65a753d0&page=1 */}
+        function setComboBox(){
+
+
+          return (
+            <Autocomplete
+              id="country-select-demo"
+              sx={{ width: 300,
+                marginLeft: 5 }}
+              options={comboData}
+              autoHighlight
+              getOptionLabel={(option) => option.english_name}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Choose Other Language"
+                  inputProps={{
+                    ...params.inputProps  
+                  }}
+                 
+
+                />
+              )}
+              onChange={(event, value) => handleComboBox(event,value)}
+              />
+              )        
+        }
+
+
+        const handleComboBox = (event,value)=>{
+           //console.log(value)
+           setbollyOrHolly(value.iso_639_1);
+        }
   return (
     <>
     <PaginationBox changePages={changePages} totalPages={totalPage}/>
-    <div id='dayWeek'>
+    <div className='boxForLang'>
+    <div id='BollyHolly'>
         
         <ToggleButtonGroup className="toggleBox" value={bollyOrHolly} exclusive onChange={handleChangeLang} aria-label="text alignment">
-            <ToggleButton value={bollyOrHolly} className="toggleBox">
+            <ToggleButton value={bollyOrHolly} className="toggleBoxButton" id="bollyButton" >
               Bollywood
            </ToggleButton>
-            <ToggleButton value={bollyOrHolly} className="toggleBox">
+            <ToggleButton value={bollyOrHolly} className="toggleBoxButton">
               Hollywood
             </ToggleButton>
-            <ToggleButton value={bollyOrHolly} className="toggleBox">
+            <ToggleButton value={bollyOrHolly} className="toggleBoxButton">
               Korean
             </ToggleButton>
-            <ToggleButton value={bollyOrHolly} className="toggleBox">
+            <ToggleButton value={bollyOrHolly} className="toggleBoxButton" id="panjButton">
             PANJABI
             </ToggleButton>
        </ToggleButtonGroup>
+  
       </div>
 
-      <div>
-      {/* https://api.themoviedb.org/3/configuration/languages?api_key=f7c839883fc085f9357c84ea65a753d0&page=1 */}
+        <div >
+           {setComboBox()}
+         </div>
       </div>
     <div id='movieBox'>
     {data &&

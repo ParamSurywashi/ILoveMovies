@@ -112,10 +112,10 @@ function Trending() {
       <div id='dayWeek'>
         
         <ToggleButtonGroup className="toggleBox" value={dayOrWeek} exclusive onChange={handleChange} aria-label="text alignment">
-            <ToggleButton value={dayOrWeek} className="toggleBox">
+            <ToggleButton value={dayOrWeek} className="toggleBox" id='dayButton'>
               Day
            </ToggleButton>
-            <ToggleButton value={dayOrWeek} className="toggleBox">
+            <ToggleButton value={dayOrWeek} className="toggleBox" id='weekButton'>
               Week
             </ToggleButton>
        </ToggleButtonGroup>

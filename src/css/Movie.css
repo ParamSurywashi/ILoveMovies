@@ -3,3 +3,31 @@
     grid-template-columns: auto auto auto auto auto auto auto;
     gap: 0;
 }
+#BollyHolly{
+    border: 1px solid black;
+    border-radius: 2em;
+    width: fit-content;
+    height: fit-content;
+    background-color: darkgray;
+}
+.boxForLang{
+    display: flex;
+
+}
+.toggleBoxButton{
+    border: none;
+}
+
+#bollyButton{
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+#panjButton{
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+.comBox{
+    height: 12px;
+}

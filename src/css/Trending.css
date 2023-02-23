@@ -33,3 +33,12 @@
     border-radius: 2em;
 }
 
+#dayButton{
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+#weekButton{
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
