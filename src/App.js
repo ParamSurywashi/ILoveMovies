@@ -37,12 +37,18 @@ function App() {
            <Route path='/topRateMovie' element={
              <PageComp type={"topRateMovie"} /> 
           }/>
+             <Route path='/UpcomingMovie' element={
+             <PageComp type={"UpcomingMovie"} /> 
+          }/>
            <Route path='/PopularTvShow' element={
               <PageComp type={"PopularTvShow"} /> 
           }/>
            <Route path='/topRateTvShow' element={
             <PageComp type={"topRateTvShow"} /> 
           }/> 
+             <Route path='/airingToday' element={
+             <PageComp type={"airingToday"} /> 
+          }/>
       </Routes>
       </div>
    

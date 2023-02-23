@@ -16,6 +16,7 @@ function Header() {
          <ul className='submenuMovieBox'>
              <li><Link to="/PopularMovie" className='linkMovies'>Popular Movies</Link></li>
              <li><Link to="/topRateMovie" className='linkMovies'>To Rated Movies</Link></li>
+             <li><Link to="/UpcomingMovie" className='linkMovies'>Upcoming Movies</Link></li>
          </ul>
       </ul>
       <ul className='menuMovieBox'>
@@ -23,6 +24,7 @@ function Header() {
       <ul className='submenuMovieBox'>
              <li><Link to="/PopularTvShow" className='linkMovies'>Popular TV Shows</Link></li>
              <li><Link to="/topRateTvShow" className='linkMovies'>To Rated TV Shows</Link></li>
+             <li><Link to="/airingToday" className='linkMovies'>Airing Today</Link></li>
          </ul>
       </ul>
     

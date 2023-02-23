@@ -28,11 +28,17 @@ function PageComp(props) {
           if(props.type === "topRateMovie"){
             fetchMovie("movie","top_rated");
           }
+          if(props.type === "UpcomingMovie"){
+            fetchMovie("movie","upcoming");
+          }
           if(props.type === "PopularTvShow"){
             fetchMovie("tv","popular");
           }
           if(props.type === "topRateTvShow"){
             fetchMovie("tv","top_rated");
+          }
+          if(props.type === "airingToday"){
+            fetchMovie("tv","airing_today");
           }
           },[pageClick, props.type])
         
