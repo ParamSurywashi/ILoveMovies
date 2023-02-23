@@ -11,13 +11,19 @@ function Header() {
         <Link to="/" className='linkComp'> <MdLocalFireDepartment /> Trending </Link>
          <li></li>
       </ul>
-      <ul>
-      <Link to="/Movie" className='linkComp'> <MdMovie /> Movie </Link>
-         <li></li>
+      <ul className='menuMovieBox'>
+         <Link to="/Movie" className='linkComp'> <MdMovie /> Movie </Link>
+         <ul className='submenuMovieBox'>
+             <li><Link to="/PopularMovie" className='linkMovies'>Popular Movies</Link></li>
+             <li><Link to="/topRateMovie" className='linkMovies'>To Rated Movies</Link></li>
+         </ul>
       </ul>
-      <ul>
+      <ul className='menuMovieBox'>
       <Link to="/Tv Shows" className='linkComp'>  <MdSlideshow />TV Shows </Link>
-         <li></li>
+      <ul className='submenuMovieBox'>
+             <li><Link to="/PopularTvShow" className='linkMovies'>Popular TV Shows</Link></li>
+             <li><Link to="/topRateTvShow" className='linkMovies'>To Rated TV Shows</Link></li>
+         </ul>
       </ul>
     
   

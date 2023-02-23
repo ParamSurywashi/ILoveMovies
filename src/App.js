@@ -5,6 +5,8 @@ import NewPageComp from "./Components/NewPageComp";
 import Search from "./Components/Search";
 import Trending from "./Components/Trending";
 import TvShows from "./Components/TvShows";
+import PageComp from "./Components/PageComp";
+
 function App() {
   const myStylesApp = {
     backgroundColor: "#a8eb12",
@@ -28,6 +30,18 @@ function App() {
           }/> 
           <Route path='/newPageComp' element={
             <NewPageComp /> 
+          }/>
+           <Route path='/PopularMovie' element={
+             <PageComp type={"PopularMovie"}/> 
+          }/>
+           <Route path='/topRateMovie' element={
+             <PageComp type={"topRateMovie"} /> 
+          }/>
+           <Route path='/PopularTvShow' element={
+              <PageComp type={"PopularTvShow"} /> 
+          }/>
+           <Route path='/topRateTvShow' element={
+            <PageComp type={"topRateTvShow"} /> 
           }/> 
       </Routes>
       </div>

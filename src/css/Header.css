@@ -42,3 +42,46 @@
     background-image: linear-gradient(to right bottom, #61a4e8, #000a76);
     padding: 1vh 0px;
 }
+
+/* .submenuMovieBox{
+    display: none;
+  transition: 0.2s 1s;
+} */
+
+/* .menuMovieBox:hover .submenuMovieBox {
+    position: absolute;
+    display: block;
+    transition-delay: 0s; 
+    margin-top: 1vh;
+    background-color: cornsilk;
+    box-shadow: 0px 8px 24px 0px rgba(12, 12, 12, 0.2);
+    padding: 0px 1vh;
+    margin-left: 1em;
+  } */
+  .submenuMovieBox {
+    display: none;
+    position: fixed;
+    background-color: rgb(235, 232, 232);
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 2px 2vh;
+    z-index: 1;
+    margin-left: 1em;
+  }
+
+  .menuMovieBox:hover .submenuMovieBox {
+    display: block;
+  }
+
+  .submenuMovieBox .linkMovies:hover {
+    padding-left: 10px;
+    border-left: 4px solid #3ca0e7;
+    transition: all 0.3s ease;
+    background-color: thistle;
+  }
+  .submenuMovieBox .linkMovies {
+    text-decoration: none;
+    color: black;
+}
+
+.submenuMovieBox .linkMovies { transition: all 0.5s ease; }
