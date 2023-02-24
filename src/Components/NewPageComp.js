@@ -149,6 +149,7 @@ function NewPageComp() {
        <div> <Youtube
         videoId={video}
         opts={options}  
+        id="youtubSize"
       />
       </div>
       

@@ -1,6 +1,9 @@
 *{
     margin: 0;
 }
+.container{
+  padding: 0px 6vh;
+}
 .headers img{
     height: 12vh;
 }
@@ -10,14 +13,20 @@
     display: flex;
     justify-content: space-around;
     background-image: linear-gradient(cadetblue , #41bdd5);
-    /* background-color: cadetblue; */
     align-items: center;
    
 }
+
 .headers ul{
     list-style-type : none;
     font-size: 24px;
 }
+/* .headers ul:hover{
+  background-color: tomato;
+  width: fit-content;
+} */
+
+
 #ulDIv{
     display: flex;
    
@@ -41,6 +50,7 @@
     align-items: center;
     background-image: linear-gradient(to right bottom, #61a4e8, #000a76);
     padding: 1vh 0px;
+    margin-top: -2vh;
 }
 
 /* .submenuMovieBox{
@@ -85,3 +95,37 @@
 }
 
 .submenuMovieBox .linkMovies { transition: all 0.5s ease; }
+
+
+@media screen and (max-width: 450px) {
+  .container{
+    padding: 0px 1vh;
+  }
+  .headers{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: linear-gradient(cadetblue , #41bdd5);
+    align-items: flex-start;
+   padding-left: 1vh;
+}
+
+.headers ul{
+    margin-left: -5vh;
+}
+
+.menuMovieBox:hover .submenuMovieBox {
+  margin-left: 6vh;
+}
+.headers ul:hover{
+  background-color: sandybrown;
+  width: 100%;
+}
+
+.headers #searchIcon:hover{
+  background-color: sandybrown;
+  width: 100%;
+}
+}

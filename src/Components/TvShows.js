@@ -29,7 +29,7 @@ function TvShows() {
   return (
     <>
     <PaginationBox changePages={changePages} totalPages={totalPage}/>
-    <div id='movieBox'>
+    <div id='tvShowBox'>
     {data &&
           data.map((card) => (
         

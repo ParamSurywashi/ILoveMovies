@@ -64,7 +64,7 @@ function Movie() {
 
           return (
             <Autocomplete
-              id="country-select-demo"
+              id="comboBox"
               sx={{ width: 300,
                 marginLeft: 5 }}
               options={comboData}
@@ -104,7 +104,7 @@ function Movie() {
             <ToggleButton value={bollyOrHolly} className="toggleBoxButton">
               Hollywood
             </ToggleButton>
-            <ToggleButton value={bollyOrHolly} className="toggleBoxButton">
+            <ToggleButton value={bollyOrHolly} className="toggleBoxButton"  id="koreanButton">
               Korean
             </ToggleButton>
             <ToggleButton value={bollyOrHolly} className="toggleBoxButton" id="panjButton">
@@ -114,7 +114,7 @@ function Movie() {
   
       </div>
 
-        <div >
+        <div id='comboBoxSelector'>
            {setComboBox()}
          </div>
       </div>

@@ -13,11 +13,7 @@
 .titleOfPage{
    width: 70%;
 }
-.imgForBackground{
-   position: absolute;
-   width: -webkit-fill-available;
-   opacity: 0.4;    
-}
+
 #usrScoreTxt{
    margin-top: -8vh;
    margin-left: 10vh;
@@ -65,4 +61,32 @@
 }
 .castBoxDetails{
    margin: 1em;
+}
+
+
+@media screen and (max-width: 450px) {
+   .pageBox{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 1em;
+  }
+  #imagesPoster{
+   width: 15em;
+   height: 20em;
+  }
+  .cardOfBox{
+   display: flex;
+   flex-direction: column; 
+   margin: 0px 0em;
+  }
+  .titleOfPage{
+   width: 99%;
+   margin: 1em 0px;
+}
+#youtubSize{
+   width: 18em;
+   height: 10em;
+}
+
 }

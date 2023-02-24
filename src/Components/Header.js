@@ -6,7 +6,7 @@ import {MdLocalFireDepartment,MdMovie,MdSlideshow,MdSearch,MdOutlineVpnLock} fro
 function Header() {
   return (
     <div className="headers">
-       <Link to="/"><div><img src={LogoMovie} /></div> </Link>
+       <Link to="/" id='imgLogos'><div><img src={LogoMovie} /></div> </Link>
       <ul>
         <Link to="/" className='linkComp'> <MdLocalFireDepartment /> Trending </Link>
          <li></li>

@@ -9,7 +9,7 @@
 .input-box {
     position: relative;
     height: 76px;
-    max-width: 900px;
+    max-width: 70%;
     width: 100%;
     background: #fff;
     margin: 0 20px;
@@ -57,4 +57,25 @@
     gap: 1em;
     grid-template-columns: auto auto auto;
     padding: 0px 20em;
+  }
+
+  @media screen and (max-width: 450px) {
+    .searchPageContainer{
+      padding: 5% 0px;
+    }
+    .input-box {
+      position: relative;
+      height: 76px;
+      width: 100%;
+  
+    }
+    .input-box input::-webkit-input-placeholder {
+      color: transparent
+    }
+    .gridSearchResult{
+      grid-template-columns: auto auto; 
+      gap: 0px;
+      padding: 0px;
+      width: 100%;
+    }
   }
