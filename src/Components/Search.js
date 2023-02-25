@@ -38,7 +38,7 @@ function Search() {
     <div className='searchPageContainer'>
           <div className="input-box">
               <i><FcSearch /></i>
-              <input type="text" placeholder="Search for a Movie, TV Shows, Person...." value={res} onChange={(e)=>setRes(e.target.value)}/>
+              <input type="text" id="textFieldBoxes" placeholder="Search for a Movie, TV Shows, Person...." value={res} onChange={(e)=>setRes(e.target.value)}/>
               <button className="button" onClick={handleSearch}>Search</button>
          </div> 
          <div>
