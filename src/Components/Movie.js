@@ -54,7 +54,16 @@ function Movie() {
           setComboData(response);
         })
       }
- 
+      // const handleNdeble = (dt)=>{
+      //   if(dt.english_name != "Ndebele"){
+      //      return dt.english_name
+      //   }else{ 
+      //    // alert(dt.english_name)
+      //    dt.iso_639_1="hi";
+      //    dt.english_name=`Hindi${name++}`
+      //   }
+      //  // console.log(dt.english_name)
+      // }
     useEffect(()=>{
       fetchOtherLanguage();
     },[])

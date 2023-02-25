@@ -44,7 +44,7 @@ function Search() {
          <div>
          <PaginationBox changePages={changePages} totalPages={totalPage}/>
           <div className='gridSearchResult'>
-         {result &&
+         {result && 
           result.map((card) => (
             <CardBox
               key={card.id}

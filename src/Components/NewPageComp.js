@@ -22,9 +22,9 @@ function NewPageComp() {
    if(from.media_type){
     media=from.media_type;
    }else{
-    media="tv"
+    media="movie"
    }
- 
+    
 
     function fetchData(){
       return fetch(`https://api.themoviedb.org/3/${media}/${from.id}?api_key=${apiKey}&language=en-US`)

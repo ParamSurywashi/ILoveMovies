@@ -12,10 +12,11 @@ function PageComp(props) {
    
 
     const fetchMovie = (movieOrTv, movieType)=>{
+    
         return fetch(
         `https://api.themoviedb.org/3/${movieOrTv}/${movieType}?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
         .then((response)=>{
-          console.log(response)
+        //  console.log(response)
           setData(response.results);
           setTotalPage(response.total_pages);
         })
@@ -47,6 +48,7 @@ function PageComp(props) {
             fetchMovie("tv","airing_today");
             movieTech="tv";
           }
+         
           },[pageClick, props.type])
         
           function changePages(pages){
@@ -56,7 +58,7 @@ function PageComp(props) {
     <>
     <PaginationBox changePages={changePages} totalPages={totalPage}/>
     <div id='movieBox'>
-      {console.log(data)}
+   
     {data &&
           data.map((card) => (
            
