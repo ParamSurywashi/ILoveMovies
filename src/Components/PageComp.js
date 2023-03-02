@@ -17,12 +17,25 @@ function PageComp(props) {
         `https://api.themoviedb.org/3/${movieOrTv}/${movieType}?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
         .then((response)=>{
         //  console.log(response)
+        if(movieType === "upcoming"){
+          const filteredData = response.results.filter(item => (item.release_date >= getDateFormate()) );
+          setData(filteredData);
+        }else {
           setData(response.results);
-          setTotalPage(response.total_pages);
+        }
+        setTotalPage(response.total_pages);
           setMovieTech(movieOrTv);
         })
     }
-    
+     function getDateFormate(){
+      let date = new Date()
+      let day = date.getDate();
+      let month = date.getMonth()+1;
+      let year = date.getFullYear();
+
+      let fullDate = `${year}-${(month>10)?(month):("0"+month)}-${(day>10)?(day):("0"+day)}`;
+      return fullDate;
+     }
         useEffect(() => {
 
           if(props.type === "PopularMovie"){
@@ -35,7 +48,6 @@ function PageComp(props) {
           }
           if(props.type === "UpcomingMovie"){
             fetchMovie("movie","upcoming");
-            
           }
           if(props.type === "PopularTvShow"){
             fetchMovie("tv","popular");
