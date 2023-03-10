@@ -12,7 +12,7 @@ function TvShows() {
     const fetchTvShows = ()=>{
     
         return fetch(
-        `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&page=${pageClick}`) .then((res)=>res.json())
+        `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&page=${pageClick}&with_original_language=hi`) .then((res)=>res.json())
         .then((response)=>{
           setData(response.results);
           setTotalPage(response.total_pages);

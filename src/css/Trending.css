@@ -2,14 +2,21 @@
     display: flex;
     flex-direction: row;
     overflow-x: auto; 
-    margin-bottom: 2vh;
+    padding: 2vh 0px;
+    margin-bottom: 1em;
 }
 .cardFlex{
     display: flex;
     flex-direction: column;
-    margin: 1em;
+    margin: 2em 0px;
     padding: 1em;
      /* pointer-events: none; */
+}
+.cardFlex:hover{
+    transform: translate3D(0,-1px,0) scale(1.1);
+    /* transform: scale(1.1);
+    margin: 2em 1em; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 .cardFlex img{
     width: 20vh;
