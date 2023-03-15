@@ -39,10 +39,19 @@
     color: black;
     text-decoration: none;
 }
+#searchIcon:hover{
+  color: red;
+  text-decoration: none;
+}
 
 .linkComp{
     color: black;
     text-decoration: none;
+}
+.linkComp:hover{
+  color: red;
+  text-decoration: none;
+  
 }
 
 #footerApp{

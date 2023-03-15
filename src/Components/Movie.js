@@ -19,7 +19,7 @@ function Movie() {
         return fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_original_language=${bollyOrHolly}&page=${pageClick}`) .then((res)=>res.json())
         .then((response)=>{
-          console.log(response)
+       
           setData(response.results);
           setTotalPage(response.total_pages);
         })
