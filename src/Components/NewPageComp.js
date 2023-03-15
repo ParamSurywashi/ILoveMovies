@@ -5,7 +5,7 @@ import "../css/NewPageComp.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
+import { FaStar } from "react-icons/fa";
 let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 
 
@@ -40,6 +40,7 @@ function NewPageComp() {
       })
       .then((data)=>{
         setContent(data);
+        console.log(data);
       }).catch((err)=>{
         console.log(err)
       })
@@ -115,16 +116,6 @@ function NewPageComp() {
     <>
      {content && (
    <div className='pageBox'  >
-     {/* <img 
-                  src={
-                    content.backdrop_path
-                      ? `https://image.tmdb.org/t/p/w500/${content.backdrop_path}`
-                      :  "https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg"
-                  }
-                  alt={content.name || content.title}
-                  className="imgForBackground"
-                /> */}
-   
        <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} alt="Cast Poster"/>
     <div className='cardOfBox'>
         <h1> {from.title} <span>({(content.release_date)?(content.release_date.split("-")[0]):(content.first_air_date.split("-")[0])})</span></h1>
@@ -151,6 +142,13 @@ function NewPageComp() {
     </Box>
     <div id='usrScoreTxt'>User <br/> Score</div>
     </div>
+    <div className='genresBox'>{
+      (content.genres) ? (
+        content.genres.map((genre)=>{
+          return (<div key={genre.id}><FaStar className='faStarGenre' /> <h3> {genre.name}</h3> </div> )
+        })
+      ):""
+      }</div>
     <div id='tagLineTxt'>{content.tagline}</div>
     <div className='titleOfPage'> <span>Overview</span> <br/>{content.overview}</div>
   

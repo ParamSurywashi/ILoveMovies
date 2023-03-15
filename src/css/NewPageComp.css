@@ -36,7 +36,7 @@
 #tagLineTxt{
    font-family: 'Times New Roman';
    font-size: 22px;
-   color: rgb(145, 191, 9);
+   color: yellow;
    margin: 1vh 0px;
 }
 .cardOfBox{
@@ -63,6 +63,17 @@
    margin: 1em;
 }
 
+.genresBox{
+   display: flex;
+   margin-top: 1em;
+}
+.genresBox div{
+   display: contents;
+}
+.faStarGenre{
+   color: yellow;
+   margin: 0px 1vh 0px 1vh;
+}
 
 @media screen and (max-width: 450px) {
    .pageBox{
