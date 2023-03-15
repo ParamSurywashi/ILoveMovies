@@ -1,7 +1,6 @@
 import React,{useEffect, useState} from 'react'
-import { Link, useLocation } from 'react-router-dom';
-import Badge from '@mui/material/Badge';
-import Youtube,{ YouTubePlayer } from "react-youtube";
+import { useLocation } from 'react-router-dom';
+import Youtube from "react-youtube";
 import "../css/NewPageComp.css";
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
@@ -14,21 +13,31 @@ function NewPageComp() {
     const [video, setVideo] = useState();
     const [content, setContent] = useState();
     const [cast, setCast] = useState([]);
+    const [mediaTypes, setMediaTypes] = useState("tv");
     const location = useLocation();
-
+    const [condition, setConditon] = useState(false);
     //let videoElement: YouTubePlayer = null;
     let from = location.state;
-    let media;
-   if(from.media_type){
-    media=from.media_type;
-   }else{
-    media="movie"
-   }
+
+    if(!condition){
+       if(from.media_type){
+       setMediaTypes(from.media_type);
+       setConditon(true);
+       }
+  }
+   
     
 
     function fetchData(){
-      return fetch(`https://api.themoviedb.org/3/${media}/${from.id}?api_key=${apiKey}&language=en-US`)
-      .then((res)=>res.json())
+      return fetch(`https://api.themoviedb.org/3/${mediaTypes}/${from.id}?api_key=${apiKey}`)
+      .then((res)=>{
+        if(res.status === 200){
+          return res.json();
+        }else{
+        console.log(res);
+        //  setMediaTypes("tv");
+        }
+      })
       .then((data)=>{
         setContent(data);
       }).catch((err)=>{
@@ -37,7 +46,7 @@ function NewPageComp() {
       
     };
     function fetchVideo(){
-      return fetch(`https://api.themoviedb.org/3/${media}/${from.id}/videos?api_key=${apiKey}&language=en-US`)
+      return fetch(`https://api.themoviedb.org/3/${mediaTypes}/${from.id}/videos?api_key=${apiKey}`)
       .then((res)=>res.json())
       .then((data)=>{
         //console.log(data)
@@ -47,9 +56,9 @@ function NewPageComp() {
       })
       };
 
-    function fetchDirector(media){
+    function fetchDirector(){
       
-      return fetch(`https://api.themoviedb.org/3/${media}/${from.id}/credits?api_key=${apiKey}`)
+      return fetch(`https://api.themoviedb.org/3/${mediaTypes}/${from.id}/credits?api_key=${apiKey}`)
       .then(response => response.json())
       .then((jsonData)=>{
      //  console.log(jsonData);
@@ -57,10 +66,10 @@ function NewPageComp() {
       });
     }
     // jsonData.crew.filter(({job})=> (job ==='Director') ? console.log(job) : "")
-      useEffect(()=>{
+  useEffect(()=>{
       fetchVideo();
       fetchData();
-      fetchDirector(media);
+      fetchDirector();
          // eslint-disable-next-line
       },[])
 
@@ -95,7 +104,7 @@ function NewPageComp() {
 
           <img className="castPoster"
         src={cast.profile_path ? `https://image.tmdb.org/t/p/w300${cast.profile_path}` : "https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg"}
-        /> <br />
+        alt="Movie Poster" /> <br />
         <b className="name">{cast.name}</b>  <br />
          <span>Character : {cast.character}</span> <br />
         <span >{cast.known_for_department}</span>
@@ -116,7 +125,7 @@ function NewPageComp() {
                   className="imgForBackground"
                 /> */}
    
-       <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} />
+       <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} alt="Cast Poster"/>
     <div className='cardOfBox'>
         <h1> {from.title} <span>({(content.release_date)?(content.release_date.split("-")[0]):(content.first_air_date.split("-")[0])})</span></h1>
         {/* <Link to={content.homepage} ></Link> */}

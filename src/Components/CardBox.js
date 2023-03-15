@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 function CardBox(props) {
   const navigate = useNavigate();
     const handleClickOnCard = (e)=>{
-       let cardId = e.currentTarget.id;
-      // console.log(props)
+    //   let cardId = e.currentTarget.id;
+     // console.log(props)
        navigate("/newPageComp",{state : props});
        
        

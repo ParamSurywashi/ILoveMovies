@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useState} from 'react';
 import { FcSearch } from "react-icons/fc";
 import "../css/Search.css";
 import CardBox from './CardBox';
@@ -13,7 +13,7 @@ function Search() {
   const [totalPage, setTotalPage] = useState(1);
 
     function fetchAPI(searchText){
-        return fetch(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${apiKey}&language=en-US&query=${searchText}&page=${pageClick}&include_adult=false`)
+        return fetch(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${apiKey}&query=${searchText}&page=${pageClick}`)
         .then((res)=>res.json())
         .then((data)=>{
           setResult(data.results);
