@@ -6,14 +6,13 @@ import PaginationBox from './PaginationBox';
 
 let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 function Search() {
-  let type = "movie";
   const[res, setRes] = useState("");
   const[result, setResult] = useState([]);
   const [pageClick, setPageClick] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
 
     function fetchAPI(searchText){
-        return fetch(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${apiKey}&query=${searchText}&page=${pageClick}`)
+        return fetch(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${searchText}&page=${pageClick}`)
         .then((res)=>res.json())
         .then((data)=>{
           setResult(data.results);
