@@ -74,7 +74,9 @@
    color: yellow;
    margin: 0px 1vh 0px 1vh;
 }
-
+.budgetRevenue{
+   margin-top: 5px;
+}
 @media screen and (max-width: 450px) {
    .pageBox{
       display: flex;
