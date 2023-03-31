@@ -5,6 +5,13 @@
     padding: 2vh 0px;
     margin-bottom: 1em;
 }
+.loaderHeart{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 44em;
+}
 .cardFlex{
     display: flex;
     flex-direction: column;
@@ -73,5 +80,8 @@
     .cardFlex{
         margin: 0px;
        
+    }
+    .loaderHeart{  
+        height: 22em;
     }
 }
