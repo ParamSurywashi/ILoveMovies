@@ -101,5 +101,8 @@
    width: 18em;
    height: 10em;
 }
-
+.contentLoad{
+   width: 300px;
+   height: 400px;
+}
 }

@@ -33,7 +33,7 @@ function NewPageComp() {
 
 useEffect(()=>{
   setTimeout(()=>{
-    setContentLoader(false);
+    //setContentLoader(false);
   },2000)
 })
 
