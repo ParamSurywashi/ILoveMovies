@@ -6,6 +6,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { FaStar } from "react-icons/fa";
+import MyLoader from './MyLoader';
+
 let apiKey = "f7c839883fc085f9357c84ea65a753d0";
 
 
@@ -17,6 +19,8 @@ function NewPageComp() {
   const [mediaTypes, setMediaTypes] = useState("tv");
   const location = useLocation();
   const [condition, setConditon] = useState(false);
+  const [contentLoader, setContentLoader] = useState(true);
+
   //let videoElement: YouTubePlayer = null;
   let from = location.state;
 
@@ -27,7 +31,11 @@ function NewPageComp() {
     }
   }
 
-
+useEffect(()=>{
+  setTimeout(()=>{
+    setContentLoader(false);
+  },2000)
+})
 
   function fetchData() {
     return fetch(`https://api.themoviedb.org/3/${mediaTypes}/${from.id}?api_key=${apiKey}`)
@@ -151,7 +159,10 @@ function NewPageComp() {
 
   return (
     <>
+      { (contentLoader) ? (<MyLoader />) : <>
+      
       {content && (
+          
         <div className='pageBox'  >
           <img id='imagesPoster' src={from.poster ? `https://image.tmdb.org/t/p/w300${from.poster}` : ""} alt="Cast Poster" />
           <div className='cardOfBox'>
@@ -200,9 +211,9 @@ function NewPageComp() {
             id="youtubSize"
           />
           </div>
-
+          
         </div>
-      )}
+      )} 
       <div className='otherBox'>
         <h1>Cast</h1>
         <div className='gridOfCast'>
@@ -220,6 +231,7 @@ function NewPageComp() {
           })}
         </div>
       </div>
+       </>}
     </>
   )
 }
