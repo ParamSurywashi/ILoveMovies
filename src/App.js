@@ -15,8 +15,10 @@ function App() {
 
   const myStylesApp = {
     backgroundColor: "#a8eb12",
-    backgroundImage: " linear-gradient(to right bottom, rgb(133 239 251), rgb(153 197 217), rgb(40 227 233), rgb(217 24 186))",
-
+    //backgroundImage: " linear-gradient(to right bottom, rgb(133 239 251), rgb(153 197 217), rgb(40 227 233), rgb(217 24 186))",
+    backgroundImage: " linear-gradient(-45deg, rgb(133 239 251), rgb(153 197 217), rgb(40 227 233), rgb(217 24 186),#ea9407)",
+    backgroundSize: "400% 400%",
+    animation: "gradient 15s ease infinite"
   }
   useEffect(()=>{
     setTimeout(()=>{
